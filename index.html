@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffe6ef">
+  <title>С Днём матери! 💐</title>
+  <meta name="description" content="Маленькая открытка для самой лучшей мамы на свете — с любовью.">
+  <meta property="og:title" content="С Днём матери! 💐">
+  <meta property="og:description" content="Маленькая открытка для самой лучшей мамы на свете — с любовью.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/photo3.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌷%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript>
+    <style>
+      .intro { display: none !important; }
+      .reveal, .ch { opacity: 1 !important; transform: none !important; }
+      body.is-locked { overflow: auto !important; }
+    </style>
+  </noscript>
+</head>
+
+<body class="is-locked">
+
+  <!-- Фон -->
+  <div class="bg" aria-hidden="true">
+    <i class="bg__blob bg__blob--1"></i>
+    <i class="bg__blob bg__blob--2"></i>
+    <i class="bg__blob bg__blob--3"></i>
+    <div class="sparks" id="sparks"></div>
+  </div>
+
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="butterflies" id="butterflies" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Вступительный экран -->
+  <section class="intro" id="intro" aria-label="Открытка для мамы">
+    <div class="intro__floaters" aria-hidden="true">
+      <span>♥</span><span>✿</span><span>♥</span><span>❀</span><span>♥</span><span>✿</span><span>♥</span><span>❀</span>
+    </div>
+    <div class="intro__card">
+      <div class="intro__heart" aria-hidden="true">
+        <svg viewBox="0 0 100 95">
+          <defs>
+            <linearGradient id="ig" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff9ab8"/>
+              <stop offset="0.55" stop-color="#ee4f84"/>
+              <stop offset="1" stop-color="#c2418f"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 88 C18 62 6 42 6 28 C6 14 18 6 30 6 C40 6 47 12 50 20 C53 12 60 6 70 6 C82 6 94 14 94 28 C94 42 82 62 50 88Z" fill="url(#ig)"/>
+          <path d="M24 22 C26 16 32 13 38 14" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="intro__small">Для самой любимой</p>
+      <p class="intro__title">У меня для тебя<br>маленький сюрприз</p>
+      <button class="btn" id="openBtn" type="button">Открыть открытку</button>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- Приветствие -->
+    <header class="hero" id="hero">
+      <div class="hero__inner">
+        <p class="eyebrow hero__fade" style="--d:.1s">✿ День матери ✿</p>
+        <h1 class="hero__title">
+          <span class="hero__line1" id="heroLine1">С Днём матери,</span>
+          <span class="hero__line2 script"><span id="heroCall" data-call>Мамочка</span>!</span>
+        </h1>
+        <p class="hero__lead hero__fade" style="--d:1.7s">
+          Эта страничка — маленький подарок. В ней живёт всё то, что я не всегда успеваю сказать вслух.
+        </p>
+        <a class="scrollhint hero__fade" style="--d:2.1s" href="#story-1">
+          <span>Листай вниз</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="garden" id="garden" aria-hidden="true"></div>
+    </header>
+
+    <!-- История 1: детство -->
+    <section class="memory" id="story-1">
+      <figure class="memory__photo reveal">
+        <div class="polaroid">
+          <span class="tape tape--l"></span>
+          <span class="tape tape--r"></span>
+          <img src="img/photo1.jpg" width="768" height="1024" decoding="async"
+               alt="Детские фотографии в семейной рамке">
+          <figcaption class="script">Мой самый первый друг — ты</figcaption>
+        </div>
+        <span class="bloom bloom--tl" data-bloom="daisy"></span>
+        <span class="bloom bloom--br" data-bloom="bloom"></span>
+      </figure>
+      <div class="memory__text reveal" style="--i:2">
+        <span class="chapter">Глава первая</span>
+        <h2>Всё началось <em>с&nbsp;тебя</em></h2>
+        <p>
+          Каждая моя первая улыбка, первый шаг и первое «мама» — всё это было рядом с тобой.
+          Ты была моим целым миром, когда я ещё не умел сказать «спасибо».
+        </p>
+        <p class="note script">Спасибо, что с первого дня любила меня больше всего на свете.</p>
+      </div>
+    </section>
+
+    <!-- История 2: вместе -->
+    <section class="memory memory--flip" id="story-2">
+      <figure class="memory__photo reveal">
+        <div class="arch">
+          <img src="img/photo2.jpg" width="768" height="1024" decoding="async"
+               alt="Мама и сын — тёплое совместное фото">
+        </div>
+        <figcaption class="ribbon script">Рядом с тобой — мой дом</figcaption>
+        <span class="bloom bloom--tr" data-bloom="tulip"></span>
+        <span class="bloom bloom--bl" data-bloom="daisy"></span>
+      </figure>
+      <div class="memory__text reveal" style="--i:2">
+        <span class="chapter">Глава вторая</span>
+        <h2>Вместе — значит <em>дома</em></h2>
+        <p>
+          Как бы далеко я ни уходил и как бы быстро ни рос, самое тёплое место на свете — рядом с тобой.
+          Стоит тебя обнять — и все тревоги растворяются.
+        </p>
+        <p class="note script">С тобой любой день становится светлее.</p>
+      </div>
+    </section>
+
+    <!-- История 3: портрет -->
+    <section class="memory" id="story-3">
+      <figure class="memory__photo reveal">
+        <div class="round">
+          <div class="wreath" id="wreath"></div>
+          <img src="img/photo3.jpg" width="640" height="640" decoding="async"
+               alt="Портрет мамы — тёплая улыбка и добрые голубые глаза">
+        </div>
+        <figcaption class="ribbon script">Самая красивая на свете</figcaption>
+      </figure>
+      <div class="memory__text reveal" style="--i:2">
+        <span class="chapter">Глава третья</span>
+        <h2>Твои глаза — <em>самое доброе</em> место</h2>
+        <p>
+          В них столько света, тепла и мудрости, что хочется смотреть и улыбаться в ответ.
+          Красота мамы — в её сердце, а у тебя оно самое большое.
+        </p>
+        <p class="note script">Ты — моё солнышко, мамочка.</p>
+      </div>
+    </section>
+
+    <!-- Пожелания -->
+    <section class="wishes" id="wishes">
+      <div class="section-head reveal">
+        <span class="chapter">Мои пожелания</span>
+        <h2>Чего я хочу <em>для тебя</em></h2>
+      </div>
+      <div class="wishes__grid">
+        <article class="wish reveal" style="--i:0">
+          <span class="wish__icon">🌷</span>
+          <h3>Здоровья</h3>
+          <p>Чтобы каждое утро начиналось с бодрости, а каждый вечер — со спокойствия.</p>
+        </article>
+        <article class="wish reveal" style="--i:1">
+          <span class="wish__icon">☀️</span>
+          <h3>Счастья</h3>
+          <p>Пусть дом наполняют смех, тепло и уют, а на душе всегда будет солнечно.</p>
+        </article>
+        <article class="wish reveal" style="--i:2">
+          <span class="wish__icon">🦋</span>
+          <h3>Лёгкости</h3>
+          <p>Чтобы поводов улыбаться было больше, чем цветов в мае.</p>
+        </article>
+        <article class="wish reveal" style="--i:3">
+          <span class="wish__icon">🏡</span>
+          <h3>Тепла</h3>
+          <p>Пусть рядом всегда будут те, кто любит тебя так же сильно, как ты любишь нас.</p>
+        </article>
+        <article class="wish reveal" style="--i:4">
+          <span class="wish__icon">💫</span>
+          <h3>Мечт</h3>
+          <p>Время для себя, любимых дел и самых смелых желаний, которые обязательно сбываются.</p>
+        </article>
+        <article class="wish reveal" style="--i:5">
+          <span class="wish__icon">🕊️</span>
+          <h3>Спокойствия</h3>
+          <p>Пусть тревоги обходят стороной, а добрые новости приходят сами.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Спасибо -->
+    <section class="thanks" id="thanks">
+      <div class="letter reveal">
+        <span class="letter__pin" aria-hidden="true">♥</span>
+        <span class="chapter">От всего сердца</span>
+        <h2>Спасибо тебе <em>за всё</em></h2>
+        <ul class="thanks__list">
+          <li class="reveal" style="--i:0"><span class="tick">♥</span>за тёплые руки и бессонные ночи</li>
+          <li class="reveal" style="--i:1"><span class="tick">♥</span>за веру в меня, даже когда я сам не верил</li>
+          <li class="reveal" style="--i:2"><span class="tick">♥</span>за мудрые советы и тихую поддержку</li>
+          <li class="reveal" style="--i:3"><span class="tick">♥</span>за вкусные обеды и уют в нашем доме</li>
+          <li class="reveal" style="--i:4"><span class="tick">♥</span>за то, что ты просто есть</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Финал -->
+    <section class="finale" id="finale">
+      <div class="finale__inner">
+        <div class="reveal">
+          <span class="chapter">И самое главное</span>
+          <h2 class="finale__title">Нажми на <em>сердечко</em></h2>
+        </div>
+        <button class="bigheart reveal" id="bigHeart" type="button" aria-label="Нажми на сердечко">
+          <svg viewBox="0 0 100 95" aria-hidden="true">
+            <defs>
+              <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffa6c0"/>
+                <stop offset="0.5" stop-color="#ef4d83"/>
+                <stop offset="1" stop-color="#c2418f"/>
+              </linearGradient>
+            </defs>
+            <path d="M50 88 C18 62 6 42 6 28 C6 14 18 6 30 6 C40 6 47 12 50 20 C53 12 60 6 70 6 C82 6 94 14 94 28 C94 42 82 62 50 88Z" fill="url(#bg1)"/>
+            <path d="M24 22 C26 16 32 13 38 14" fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <p class="finale__hint" id="finaleHint">нажми — и увидишь</p>
+
+        <div class="finale__msg" id="finaleMsg" aria-live="polite">
+          <p class="finale__big script" style="--i:0">Я люблю тебя, <span data-call-lower>мамочка</span>!</p>
+          <p style="--i:1">
+            Ты — моя опора, мой первый учитель и самый добрый человек на свете.
+            Что бы ни случилось, я знаю: дома меня ждут, любят и верят в меня.
+          </p>
+          <p style="--i:2">
+            Пусть этот день — и каждый следующий — будет наполнен цветами, теплом и поводами для улыбки.
+            С Днём матери!
+          </p>
+          <p class="sign script" style="--i:3">С любовью, <span data-sign>твой сын</span> ♥</p>
+        </div>
+      </div>
+      <div class="garden garden--finale" id="gardenFinale" aria-hidden="true"></div>
+      <p class="finale__foot">Сделано с любовью 💐</p>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
